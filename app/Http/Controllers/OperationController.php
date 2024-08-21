@@ -7,7 +7,9 @@ use DB;
 use App\Models\Projet;
 use App\Models\operation;
 use App\Models\Secteur;
-use App\Models\Etat_projet;
+use App\Models\archivage_projet;
+use App\Models\archivage_op;
+use App\Models\etat_avance;
 
 class OperationController extends Controller
 {

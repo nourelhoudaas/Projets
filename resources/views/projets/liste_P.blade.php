@@ -26,6 +26,7 @@
                                 <th>Date de creation de projet</th>
                                 <th>Secteur du projet</th>
                                 <th>Operations du projet</th>
+                                <th>Etat d'avancement</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,7 +46,8 @@
                                             {{ $operation->id_lib_op }}<br>
                                         @endforeach
                                     </td>
-                            @endforeach
+                                    <td>{{ $projet->archivage_projet->etat_avance->nom_etat }}</td>
+                                    @endforeach
                         </tbody>
                     </table>
                     {{-- <nav class="app-pagination">

@@ -22,8 +22,10 @@ class Operation extends Model
         return $this->belongsTo(Projet::class, 'id_projet');
     }
 
-    public function Etat_projet()
+    public function Etat_avance()
     {
-        return $this->belongsToMany(Etat_projet::class, 'pourcentage','id_etat', 'id_lib_op');
+        return $this->belongsToMany(Etat_avance::class, 'archivage_op','id_etat', 'id_lib_op')
+                    ->withPivot('date_chang')
+                    ->withTimestamps();
     }
 }

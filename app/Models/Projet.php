@@ -27,5 +27,11 @@ class Projet extends Model
         return $this->belongsTo(Secteur::class, 'id_sect');
     }
 
+    public function Etat_avance()
+    {
+        return $this->belongsToMany(Etat_avance::class, 'archivage_projet','id_etat', 'id_projet')
+                    ->withPivot('date_chang')
+                    ->withTimestamps();
+    }
 
 }

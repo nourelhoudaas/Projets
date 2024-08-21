@@ -19,11 +19,17 @@ class Etat_avance extends Model
 
     public function operation()
     {
-        return $this->belongsToMany(operation::class, 'archivage_op','id_etat', 'id_lib_op');
+        return $this->belongsToMany(operation::class, 'archivage_op','id_etat', 'id_lib_op')
+                    ->withPivot('date_chang')
+                    ->withTimestamps();
     }
 
     public function projet()
     {
-        return $this->belongsToMany(operation::class, 'archivage_projet','id_etat', 'id_projet');
+        return $this->belongsToMany(operation::class, 'archivage_projet','id_etat', 'id_projet')
+                    ->withPivot('date_chang')
+                    ->withTimestamps();
     }
+
+
 }
