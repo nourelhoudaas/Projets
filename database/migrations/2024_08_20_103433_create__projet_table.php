@@ -19,6 +19,16 @@ return new class extends Migration
             $table->string('definition_projet');
 
         });
+
+        DB::table('projet')->insert([
+            [
+                'id_projet' => 1,
+                'id_sect' =>1,
+                'nom_projet'=> 'developpement',
+                'etablissement_projet'=>'personnel',
+                'definition_projet'=>'investissement'
+            ]
+        ]);
     }
 
     /**

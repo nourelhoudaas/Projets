@@ -16,6 +16,15 @@ return new class extends Migration
             $table->string('nom_sect');
 
         });
+
+        DB::table('secteur')->insert([
+            [
+                'id_sect' =>1,
+                'nom_sect'=> 'developpement',
+                'etablissement_projet'=>'personnel',
+                'definition_projet'=>'investissement'
+            ]
+        ]);
     }
 
     /**
