@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('operation', function (Blueprint $table) {
             $table->integer('id_lib_op')->primary()->autoIncrement();
             $table->integer('num_op')->unique();
-            $table->integer('id_etat');
             $table->integer('id_projet');
             $table->string('objet_vis_op');
             $table->string('contraint_rea_op');
@@ -34,7 +33,6 @@ return new class extends Migration
             [
                 'id_lib_op' =>1,
                 'num_op'=> 1,
-                'id_etat'=> 1,
                 'id_projet'=> 1,
                 'objet_vis_op'=> 'renové',
                 'objet_vis_op'=> 'renové',
@@ -51,7 +49,6 @@ return new class extends Migration
             [
                 'id_lib_op' =>2,
                 'num_op'=> 2,
-                'id_etat'=> 2,
                 'id_projet'=> 1,
                 'objet_vis_op'=> 'Rrenové',
                 'objet_vis_op'=> 'Rrenové',
@@ -68,7 +65,6 @@ return new class extends Migration
             [
                 'id_lib_op' =>3,
                 'num_op'=> 3,
-                'id_etat'=> 1,
                 'id_projet'=> 2,
                 'objet_vis_op'=> 'renové',
                 'objet_vis_op'=> 'renové',
@@ -85,7 +81,6 @@ return new class extends Migration
             [
                 'id_lib_op' =>4,
                 'num_op'=> 4,
-                'id_etat'=> 2,
                 'id_projet'=> 2,
                 'objet_vis_op'=> 'Rrenové',
                 'objet_vis_op'=> 'Rrenové',

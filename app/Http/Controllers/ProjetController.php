@@ -7,6 +7,8 @@ use DB;
 use App\Models\Projet;
 use App\Models\Operation;
 use App\Models\Secteur;
+use App\Models\Etat_projet;
+
 
 use Illuminate\Support\Facades\Log;
 class ProjetController extends Controller

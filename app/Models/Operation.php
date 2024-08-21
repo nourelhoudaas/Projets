@@ -19,11 +19,11 @@ class Operation extends Model
 
     public function projet()
     {
-        return $this->belongsTo(Projet::class, 'id_projet','id_projet');
+        return $this->belongsTo(Projet::class, 'id_projet');
     }
 
-    public function etat()
+    public function Etat_projet()
     {
-        return $this->hasMany(etat::class, 'id_etat','id_etat');
+        return $this->belongsToMany(Etat_projet::class, 'pourcentage','id_etat', 'id_lib_op');
     }
 }

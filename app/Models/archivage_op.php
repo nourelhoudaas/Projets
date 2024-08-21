@@ -5,20 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Secteur extends Model
+class archivage_op extends Model
 {
     use HasFactory;
-    protected $table = 'Secteur';
-    protected $primaryKey = 'id_sect';
+    protected $table = 'archivage_op';
+    protected $primaryKey = 'id_archiv';
     public $incrementing = true;
     protected $keyType = 'integer';
 
     protected $fillable = [
-        'id_sect','nom_sect'
+        'id_archiv','id_lib_op','id_etat','date_chang'
     ];
-
-    public function projet()
-    {
-        return $this->hasMany(projet::class, 'id_sect');
-    }
 }

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('etat_projet', function (Blueprint $table) {
+        Schema::create('etat_avance', function (Blueprint $table) {
             $table->integer('id_etat')->primary()->autoIncrement();
             $table->string('nom_etat');
             $table->string('descriptif_etat');
         });
 
-        DB::table('etat_projet')->insert([
+        DB::table('etat_avance')->insert([
             [
                 'nom_etat' =>'relisé',
                 'id_etat'=> 1,

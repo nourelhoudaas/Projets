@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pourcentage', function (Blueprint $table) {
-            $table->integer('id_pourc')->primary()->autoIncrement();
-            $table->integer('id_lib_op');
-            $table->integer('id_etat');
+        Schema::create('archivage_projet', function (Blueprint $table) {
+            $table->integer('id_archiv')->primary()->autoIncrement();
+            $table->foreignId('id_projet');
+            $table->foreignId('id_etat');
             $table->date('date_chang');
 
         });
 
-        DB::table('pourcentage')->insert([
+        DB::table('archivage_projet')->insert([
             [
-                'id_pourc' =>1,
-                'id_lib_op'=> 1,
+                'id_archiv' =>1,
+                'id_projet'=> 1,
                 'id_etat'=> 1,
                 'date_chang'=> '2022-08-31'
             ]
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pourcentage');
+        Schema::dropIfExists('archivage_projet');
     }
 };

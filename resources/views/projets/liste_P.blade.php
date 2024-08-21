@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td><a
-                                            href="{{ route('app_liste_Op', $projet->id_projet) }}">{{ $projet->nom_projet }}</a>
+                                            href="{{ route('app_liste_Op',$projet->id_projet) }}">{{ $projet->nom_projet }}</a>
                                     </td>
                                     <td>{{ $projet->etablissement_projet }}</td>
                                     <td>{{ $projet->definition_projet }}</td>

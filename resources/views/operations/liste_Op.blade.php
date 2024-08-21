@@ -1,99 +1,58 @@
-@extends('base')
+@extends('Home')
 
 
-@section('title', 'liste Projets')
+@section('title', 'liste Opérations')
 
 @section('content')
 
     <body>
-
         <div class="container2">
-
             <!-- start section aside -->
             @include('./navbar.sidebar')
             <!-- end section aside -->
             <main>
                 <div class="recent_order">
-
-                    <br></br>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Id </th>
-                                <th>Nom du projet </th>
-                                <th>Etablissement du projet </th>
-                                <th>Definition du projet</th>
-                                <th>Date de creation de projet</th>
-                                <th>Secteur du projet</th>
-                                <th>Operations du projet</th>
+                                <th>N°</th>
+                                <th>Numéro et libellé d'individualisation de l'opération </th>
+                                <th>Objectif visé de l'operation </th>
+                                <th>Année de notification par le MF</th>
+                                <th>Année d'individualisation</th>
+                                <th>AP initial</th>
+                                <th>AP actuel</th>
+                                <th>Cumul des AP engagées au 30-09-2023</th>
+                                <th>Cumul des paiements réelle au 30-09-2023</th>
+                                <th>Taux de réalisation physique de l'opération au 30-09-2023</th>
+                                <th>Etat d'avancement</th>
+                                <th>Contraintes de la réalisation</th>
                             </tr>
                         </thead>
                         <tbody>
-
-                            @foreach ($projets as $index => $projet)
+                            @foreach ($Operations->operation as $index => $operation)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td><a
-                                            href="{{ route('app_liste_op', $projet->id_projet) }}">{{ $projet->nom_projet }}</a>
-                                    </td>
-                                    <td>{{ $projet->etablissement_projet }}</td>
-                                    <td>{{ $projet->definition_projet }}</td>
-                                    <td>{{ $projet->etablissement_projet }}</td>
-                                    <td>{{ $projet->etablissement_projet }}</td>
-                                    <td>
-                                        @foreach ($projet->operation as $operation)
-                                            {{ $operation->id_lib_op }}<br>
-                                        @endforeach
-                                    </td>
+                                    <td>{{ $operation->num_op }}</td>
+                                    <td>{{ $operation->id_lib_op }}</td>
+                                    <td>{{ $operation->objet_vis_op }}</td>
+                                    <td>{{ $operation->date_notifM_op }}</td>
+                                    <td>{{ $operation->date_indiv_op }}</td>
+                                    <td>{{ $operation->ap_init_op }}</td>
+                                    <td>{{ $operation->ap_actu_op }}</td>
+                                    <td>{{ $operation->cumul_ap_eng_op }}</td>
+                                    <td>{{ $operation->cumul_ap_pai_reel_op }}</td>
+                                    <td>{{ $operation->taux_rea_phy_op }}</td>
+                                    <td>{{ $operation->etat_projet->nom_etat }}</td>
+                                    <td>{{ $operation->contraint_rea_op }}</td>
 
-                                    <td>
-
-                                        <a href="{{ route('departement.editer', $projet->id_depart) }}"><i
-                                                class="fa fa-edit"></i></a>
-
-                                        {{-- <form action="#" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet direction ?')"
-                                                href="{{ route('department.delete', $departement->id_depart) }}"> <i
-                                                    class="fa fa-trash" aria-hidden="true"></i></a>
-                                        </form> --}}
-
-
-
-                                    </td>
                             @endforeach
                         </tbody>
                     </table>
-                    <nav class="app-pagination">
-                        {{ $departements->links() }}
-
-
-
-                        </td>
-
-
-                        <script type="text/javascript">
-                            function confirmation(ev) {
-                                evpreventDefault();
-                                var urlToRedirect = ev.currentTarget.getAttribute('href');
-                                console.log(urlToRedirect);
-                                swal({
-                                        title: "voulez-vous supprimé cette direction?",
-                                        title: "etes vous sure ?",
-                                        icon: "warning",
-                                        buttons: true,
-                                        dangerMode: true,
-                                    })
-                                    .then((willCancel) => {
-                                        if (willCancel) {
-                                            window.location.href = urlToRedirect;
-                                        }
-                                    })
-                            }
-                        </script>
-
                 </div>
             </main>
-        @endsection
+        </div>
+    </body>
+@endsection
+

@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EtatProjet extends Model
+class Etat_avance extends Model
 {
     use HasFactory;
-    protected $table = 'EtatProjet';
+    protected $table = 'etat_avance';
     protected $primaryKey = 'id_etat';
     public $incrementing = true;
     protected $keyType = 'integer';
@@ -19,6 +19,11 @@ class EtatProjet extends Model
 
     public function operation()
     {
-        return $this->hasMany(etat::class, 'id_etat','id_etat');
+        return $this->belongsToMany(operation::class, 'archivage_op','id_etat', 'id_lib_op');
+    }
+
+    public function projet()
+    {
+        return $this->belongsToMany(operation::class, 'archivage_projet','id_etat', 'id_projet');
     }
 }

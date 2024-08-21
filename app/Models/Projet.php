@@ -19,12 +19,12 @@ class Projet extends Model
 
     public function operation()
     {
-        return $this->hasMany(operation::class, 'id_projet','id_projet');
+        return $this->hasMany(operation::class, 'id_projet');
     }
 
     public function secteur()
     {
-        return $this->belongsTo(Secteur::class, 'id_sect','id_sect');
+        return $this->belongsTo(Secteur::class, 'id_sect');
     }
 
 
