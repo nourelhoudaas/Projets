@@ -16,6 +16,19 @@ return new class extends Migration
             $table->string('nom_etat');
             $table->string('descriptif_etat');
         });
+
+        DB::table('etat_projet')->insert([
+            [
+                'nom_etat' =>'relisé',
+                'id_etat'=> 1,
+                'descriptif_etat'=> 'blabla'
+            ],
+            [
+                'nom_etat' =>'en cours',
+                'id_etat'=> 2,
+                'descriptif_etat'=> 'blabla2'
+            ]
+        ]);
     }
 
     /**

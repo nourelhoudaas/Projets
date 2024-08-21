@@ -13,11 +13,20 @@ return new class extends Migration
     {
         Schema::create('pourcentage', function (Blueprint $table) {
             $table->integer('id_pourc')->primary()->autoIncrement();
-            $table->integer('id_projet');
+            $table->integer('id_lib_op');
             $table->integer('id_etat');
             $table->date('date_chang');
 
         });
+
+        DB::table('pourcentage')->insert([
+            [
+                'id_pourc' =>1,
+                'id_lib_op'=> 1,
+                'id_etat'=> 1,
+                'date_chang'=> '2022-08-31'
+            ]
+        ]);
     }
 
     /**

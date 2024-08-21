@@ -20,9 +20,11 @@ return new class extends Migration
         DB::table('secteur')->insert([
             [
                 'id_sect' =>1,
-                'nom_sect'=> 'developpement',
-                'etablissement_projet'=>'personnel',
-                'definition_projet'=>'investissement'
+                'nom_sect'=> 'media',
+            ],
+            [
+                'id_sect' =>2,
+                'nom_sect'=> 'autre',
             ]
         ]);
     }

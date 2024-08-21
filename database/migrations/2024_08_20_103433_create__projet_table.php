@@ -27,6 +27,13 @@ return new class extends Migration
                 'nom_projet'=> 'developpement',
                 'etablissement_projet'=>'personnel',
                 'definition_projet'=>'investissement'
+            ],
+            [
+                'id_projet' => 2,
+                'id_sect' =>2,
+                'nom_projet'=> 'developpement2',
+                'etablissement_projet'=>'personnel2',
+                'definition_projet'=>'investissement2'
             ]
         ]);
     }
