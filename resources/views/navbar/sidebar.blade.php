@@ -10,16 +10,14 @@
             </div>
         </div>
         <h2>Ministère de la Communication</h2>
+        <div class="header__search">
+            <input type="search" placeholder="Search" class="header__input">
+            <i class='bx bx-search header__icon'></i>
 
+        </div>
         {{-- <a href="#" class="header__logo">Ministère de la Communication</a> --}}
 
-
-
-        {{-- <div class="header__toggle">
-            <i class='bx bx-menu' id="header-toggle"></i>
-
-        </div> --}}
-        <div class="nav__dropdown">
+        {{-- <div class="nav__dropdown">
             <a href="#" class="nav__link">
                 <i class='bx bxs-directions nav__icon'></i>
                 <span class="nav__name">Projets</span>
@@ -36,7 +34,7 @@
                         projet</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="right">
         <div class="top">
             <div class="profile">
