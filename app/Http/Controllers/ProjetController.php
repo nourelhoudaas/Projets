@@ -27,7 +27,7 @@ class ProjetController extends Controller
         'latest_archive.date_chang',
         'etat_avance.nom_etat',
         'secteur.nom_sect',
-        DB::raw('GROUP_CONCAT(operation.id_lib_op SEPARATOR ", ") as operations')
+        DB::raw('GROUP_CONCAT(DISTINCT operation.id_lib_op SEPARATOR ", ") as operations')
     )
     ->leftJoin(DB::raw('(SELECT a.id_projet, a.id_etat, a.date_chang
                      FROM archivage_projet a

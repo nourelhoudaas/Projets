@@ -43,9 +43,12 @@
                                     {{-- <td>{{ $projet->etablissement_projet }}</td> --}}
                                     <td>{{ $projet->nom_sect }}</td>
                                     <td>
-                                        @foreach ($projet->operation as $operation)
-                                            {{ $operation->id_lib_op ?? 'Non défini'}}<br>
-                                        @endforeach
+                                        @if (!empty($projet->operations))
+                                        {{ $projet->operations }}
+                                    @else
+                                        Non défini
+                                    @endif
+
                                     </td>
                                     <td>{{ $projet->nom_etat ?? 'Non défini'}}</td>
                                     <td>{{ $projet->date_chang ?? 'Non défini' }}</td>

@@ -437,6 +437,7 @@ Start main section style
 main{
     margin-top: 1rem;
     width: auto;
+    margin-left: -5rem;
 
 }
 main input{
@@ -528,7 +529,7 @@ main .recent_order h2{
 
 main .recent_order table{
     background-color: var(--clr-white);
-    width: 100%;
+    width: 105%;
     border-radius: var(--card-border-raduis);
     padding: var(--card-padding);
     text-align: center;

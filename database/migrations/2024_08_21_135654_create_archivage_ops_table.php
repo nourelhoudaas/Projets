@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('archivage_op', function (Blueprint $table) {
             $table->integer('id_archiv')->primary()->autoIncrement();
-            $table->foreignId('id_lib_ob');
+            $table->foreignId('id_lib_op');
             $table->foreignId('id_etat');
             $table->date('date_chang');
 
@@ -22,7 +22,7 @@ return new class extends Migration
         DB::table('archivage_op')->insert([
             [
                 'id_archiv' =>1,
-                'id_lib_ob'=> 1,
+                'id_lib_op'=> 1,
                 'id_etat'=> 1,
                 'date_chang'=> '2022-08-31'
             ]
