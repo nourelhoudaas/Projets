@@ -23,10 +23,11 @@
                                 <th>Nom du projet </th>
                                 <th>Etablissement du projet </th>
                                 <th>Definition du projet</th>
-                                <th>Date de creation de projet</th>
+                                {{-- <th>Date de creation de projet</th> --}}
                                 <th>Secteur du projet</th>
                                 <th>Operations du projet</th>
                                 <th>Etat d'avancement</th>
+                                <th>Date de modification</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,14 +40,15 @@
                                     </td>
                                     <td>{{ $projet->etablissement_projet }}</td>
                                     <td>{{ $projet->definition_projet }}</td>
-                                    <td>{{ $projet->etablissement_projet }}</td>
-                                    <td>{{ $projet->secteur->nom_sect }}</td>
+                                    {{-- <td>{{ $projet->etablissement_projet }}</td> --}}
+                                    <td>{{ $projet->nom_sect }}</td>
                                     <td>
                                         @foreach ($projet->operation as $operation)
-                                            {{ $operation->id_lib_op }}<br>
+                                            {{ $operation->id_lib_op ?? 'Non défini'}}<br>
                                         @endforeach
                                     </td>
-                                    <td>{{ $projet->archivage_projet->etat_avance->nom_etat }}</td>
+                                    <td>{{ $projet->nom_etat ?? 'Non défini'}}</td>
+                                    <td>{{ $projet->date_chang ?? 'Non défini' }}</td>
                                     @endforeach
                         </tbody>
                     </table>
