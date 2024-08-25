@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('projet', function (Blueprint $table) {
             $table->integer('id_projet')->primary()->autoIncrement();
-            $table->integer('id_sect');
-            $table->string('nom_projet');
-            $table->string('etablissement_projet');
-            $table->string('definition_projet');
-
+            $table->string('libelle_op');
+            $table->string('N_individualisation');
+            $table->float('AP_actuelle');
+            $table->float('depenses_cumules');
+            $table->float('PEC');
+            $table->float('depenses_previsionnelles');
+          
         });
 
-        DB::table('projet')->insert([
+       /* DB::table('projet')->insert([
             [
                 'id_projet' => 1,
                 'id_sect' =>1,
@@ -42,7 +44,7 @@ return new class extends Migration
                 'etablissement_projet'=>'personnel2',
                 'definition_projet'=>'investissement2'
             ]
-        ]);
+        ]);*/
     }
 
     /**

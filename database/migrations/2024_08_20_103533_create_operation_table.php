@@ -14,22 +14,23 @@ return new class extends Migration
         Schema::create('operation', function (Blueprint $table) {
             $table->integer('id_lib_op')->primary()->autoIncrement();
             $table->integer('num_op')->unique();
-            $table->integer('id_projet');
             $table->string('objet_vis_op');
             $table->string('contraint_rea_op');
             $table->date('date_notifM_op');
-            $table->date('date_chang');
             $table->date('date_indiv_op');
             $table->float('ap_init_op');
             $table->float('ap_actu_op');
             $table->float('cumul_ap_eng_op');
             $table->float('cumul_ap_pai_reel_op');
             $table->float('taux_rea_phy_op');
+            $table->integer('id_projet');
+            $table->DateTime('date_creat_op');
             $table->timestamps();
-
+            $table->foreign('id_projet')->references('id_projet')->on('projet');
+            
         });
 
-        DB::table('operation')->insert([
+        /*DB::table('operation')->insert([
             [
                 'id_lib_op' =>1,
                 'num_op'=> 1,
@@ -94,7 +95,7 @@ return new class extends Migration
                 'cumul_ap_pai_reel_op'=> 4412.220,
                 'taux_rea_phy_op'=> 4712.205,
             ]
-        ]);
+        ]);*/
     }
 
     /**

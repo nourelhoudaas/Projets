@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('secteur', function (Blueprint $table) {
             $table->integer('id_sect')->primary()->autoIncrement();
             $table->string('nom_sect');
-
+            $table->integer('id_projet');
+            $table->foreign('id_projet')->references('id_projet')->on('projet');
         });
 
-        DB::table('secteur')->insert([
+        /*DB::table('secteur')->insert([
             [
                 'id_sect' =>1,
                 'nom_sect'=> 'media',
@@ -26,7 +27,7 @@ return new class extends Migration
                 'id_sect' =>2,
                 'nom_sect'=> 'autre',
             ]
-        ]);
+        ]);*/
     }
 
     /**

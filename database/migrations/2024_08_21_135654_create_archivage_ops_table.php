@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('archivage_op', function (Blueprint $table) {
-            $table->integer('id_archiv')->primary()->autoIncrement();
-            $table->foreignId('id_lib_op');
-            $table->foreignId('id_etat');
-            $table->date('date_chang');
+            $table->integer('id_archiv_op')->primary()->autoIncrement();
+            $table->integer('id_lib_op');
+            $table->foreign('id_lib_op')->references('id_lib_op')->on('operation');
+            $table->integer('id_etat');
+            $table->foreign('id_etat')->references('id_etat')->on('etat_avance');
+            $table->DateTime('date_chang_op');
 
         });
 
