@@ -28,5 +28,5 @@ Route::controller(ProjetController::class)->group(function(){
 /***************************************************************************** */
 Route::controller(OperationController::class)->group(function(){
     Route::get('/listeOp/{id_projet}','liste_Op')->name('app_liste_Op');
-    Route::post('/addOp','add_Op')->name('app_add_Op');
+    Route::match('/addOp','add_Op')->name('app_add_Op');
 });
