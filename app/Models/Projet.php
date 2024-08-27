@@ -7,31 +7,34 @@ use Illuminate\Database\Eloquent\Model;
 
 class Projet extends Model
 {
+
     use HasFactory;
-    protected $table = 'Projet';
+    protected $table = 'projet';
     protected $primaryKey = 'id_projet';
     public $incrementing = true;
     protected $keyType = 'integer';
+    public $timestamps = false;
 
     protected $fillable = [
-         'nom_projet', 'etablissement_projet', 'definition_projet','id_projet','id_sect'
+         'id_projet', 'libelle_op', 'N_individualisation','AP_actuelle','depenses_cumules'
+         ,'PEC','depenses_previsionnelles'
     ];
 
     public function operation()
     {
-        return $this->hasMany(operation::class, 'id_projet');
+        return $this->hasMany(operation::class, 'id_projet','id_projet');
+    }
+
+    public function archivageProj()
+    {
+        return $this->hasMany(archivage_projet::class,'id_projet','id_projet');
     }
 
     public function secteur()
     {
-        return $this->belongsTo(Secteur::class, 'id_sect');
+        return $this->belongsTo(Secteur::class, 'id_sect','id_sect');
     }
 
-    public function Etat_avance()
-    {
-        return $this->belongsToMany(Etat_avance::class, 'archivage_projet','id_etat', 'id_projet')
-                    ->withPivot('date_chang')
-                    ->withTimestamps();
-    }
+   
 
 }

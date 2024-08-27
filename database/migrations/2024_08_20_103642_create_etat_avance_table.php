@@ -19,7 +19,7 @@ return new class extends Migration
 
         DB::table('etat_avance')->insert([
             [
-                'nom_etat' =>'relisé',
+                'nom_etat' =>'realisé',
                 'id_etat'=> 1,
                 'descriptif_etat'=> 'blabla'
             ],
