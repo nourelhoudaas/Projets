@@ -21,17 +21,19 @@ Route::controller(HomeController::class)->group(function(){
 /***************************************************************************** */
 Route::controller(ProjetController::class)->group(function(){
     Route::get('/listeP','liste_P')->name('app_liste_P');
+    Route::match(['get', 'post'],'/addP','add_P')->name('app_add_P');
+
     //Route::post('/addP','add_P')->name('app_add_P');
 
     Route::get('/insert','add_P')->name('app_add_P');
     Route::post('/insertt','insertProj')->name('insrt_proj');
 
-    
+
     Route::get('/select','selectProj')->name('app_select_P');
 });
 
 /***************************************************************************** */
 Route::controller(OperationController::class)->group(function(){
     Route::get('/listeOp/{id_projet}','liste_Op')->name('app_liste_Op');
-    Route::post('/addOp','add_Op')->name('app_add_Op');
+    Route::match('/addOp','add_Op')->name('app_add_Op');
 });

@@ -1,6 +1,9 @@
 @extends('Home')
 
 
+@section('title', 'Nouveau Projet')
+
+@section('content')
 @section('title', 'liste Projets')
 
 @section('content')
