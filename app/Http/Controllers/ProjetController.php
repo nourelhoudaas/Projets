@@ -70,11 +70,11 @@ class ProjetController extends Controller
     ->get();
 //dd($projets);
 $secteurs = Secteur::all();
-//$etats=Etat_avance::all();
+$etats=Etat_avance::all();
 
 //dd($secteurs);
 //dd($etats);
-    return view('projets.add_P', compact('projets','secteurs'));
+    return view('projets.add_P', compact('projets','secteurs','etats'));
     }
 
     public function insertProj(Request $request)
@@ -120,7 +120,14 @@ $secteurs = Secteur::all();
         $secteur->id_projet = $projet->id_projet;
         $secteur->save();
     }
-      $projets = DB::table('projet as p')
+   // Insertion de l'état d'avancement dans la table archivage_projet
+   if (!empty($validerData['id_etat'])) {
+    DB::table('archivage_projet')->insert([
+        'id_projet' => $projet->id_projet,
+        'id_etat' => $validerData['id_etat']
+    ]);
+}
+        $projets = DB::table('projet as p')
     ->leftJoin('secteur as s', 's.id_projet', '=', 'p.id_projet')
     ->leftJoin('archivage_projet as ap', 'ap.id_projet', '=', 'p.id_projet')
     ->leftJoin('etat_avance as e', 'e.id_etat', '=', 'ap.id_etat')

@@ -48,7 +48,15 @@
             @endforeach
         </select>
     </div>
-
+    <div class="form-group">
+    <label for="id_etat">État d'Avancement</label>
+    <select id="id_etat" name="id_etat" class="form-control">
+        <option value="">Sélectionner un état</option>
+        @foreach ($etats as $etat)
+            <option value="{{ $etat->id_etat }}">{{ $etat->nom_etat }}</option>
+        @endforeach
+    </select>
+</div>
                 <div class="button">
                     <input type="submit" value="Insérer">
                 </div>
