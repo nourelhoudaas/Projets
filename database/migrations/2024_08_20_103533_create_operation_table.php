@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('operation', function (Blueprint $table) {
-            $table->integer('id_lib_op')->primary()->autoIncrement();
+            $table->integer('id_lib_op')->primary();
             $table->integer('num_op')->unique();
             $table->string('objet_vis_op');
             $table->string('contraint_rea_op');
