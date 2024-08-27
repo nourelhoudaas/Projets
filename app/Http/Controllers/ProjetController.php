@@ -21,23 +21,23 @@ class ProjetController extends Controller
        //$projets=Projet::with('operation','Secteur', 'etat_avance')->get();
 
        // Obtenez la dernière date de changement pour chaque projet
-      /* $projets = Projet::select(
+       $projets = Projet::select(
         'projet.*',
         'latest_archive.id_etat',
-        'latest_archive.date_chang',
+        'latest_archive.date_chang_proj',
         'etat_avance.nom_etat',
         'secteur.nom_sect',
-        DB::raw('GROUP_CONCAT(DISTINCT operation.id_lib_op SEPARATOR ", ") as operations')
+        DB::raw('GROUP_CONCAT(DISTINCT operation.id_lib_op SEPARATOR ",\n ") as operations')
     )
-    ->leftJoin(DB::raw('(SELECT a.id_projet, a.id_etat, a.date_chang
+    ->leftJoin(DB::raw('(SELECT a.id_projet, a.id_etat, a.date_chang_proj
                      FROM archivage_projet a
                      INNER JOIN (
-                         SELECT id_projet, MAX(date_chang) as max_date
+                         SELECT id_projet, MAX(date_chang_proj) as max_date
                          FROM archivage_projet
                          GROUP BY id_projet
                      ) as max_archive
                      ON a.id_projet = max_archive.id_projet
-                     AND a.date_chang = max_archive.max_date) as latest_archive'),
+                     AND a.date_chang_proj = max_archive.max_date) as latest_archive'),
            'projet.id_projet', '=', 'latest_archive.id_projet')
     ->leftJoin('etat_avance', 'latest_archive.id_etat', '=', 'etat_avance.id_etat')
     ->leftJoin('secteur', 'projet.id_sect', '=', 'secteur.id_sect')
@@ -45,7 +45,7 @@ class ProjetController extends Controller
     ->groupBy(
         'projet.id_projet',
         'latest_archive.id_etat',
-        'latest_archive.date_chang',
+        'latest_archive.date_chang_proj',
         'etat_avance.nom_etat',
         'secteur.nom_sect'
     )
@@ -53,7 +53,7 @@ class ProjetController extends Controller
 
    // dd($projets);
 
-        return view('projets.liste_P', compact('projets'));*/
+        return view('projets.liste_P', compact('projets'));
     }
 
     /*******************************insertion proojet ******************/
@@ -79,8 +79,8 @@ $secteurs = Secteur::all();
 
     public function insertProj(Request $request)
     {
-       
-      //valider les champs 
+
+      //valider les champs
         $validerData= $request->validate([
 
             'libelle_op' => 'required|string|max:255',
@@ -89,10 +89,10 @@ $secteurs = Secteur::all();
             'depenses_cumules' => 'required|numeric',
             'PEC' => 'required|numeric',
             'depenses_previsionnelles' => 'required|numeric',
-            //'nom_sect' => 'nullable|string|exists:secteur,nom_sect' 
+            //'nom_sect' => 'nullable|string|exists:secteur,nom_sect'
             'id_sect' => 'nullable|exists:secteur,id_sect',
               'id_etat' => 'nullable|exists:etat_avance,id_etat'
-           
+
         ]);
 
       // dd($validerData);
@@ -137,10 +137,10 @@ $secteurs = Secteur::all();
     /*************************select projet *****************************************/
     public function selectProj()
     {
-    
 
-    
-       
+
+
+
     }
 
 }

@@ -17,7 +17,7 @@ class Projet extends Model
 
     protected $fillable = [
          'id_projet', 'libelle_op', 'N_individualisation','AP_actuelle','depenses_cumules'
-         ,'PEC','depenses_previsionnelles'
+         ,'PEC','depenses_previsionnelles','id_sect'
     ];
 
     public function operation()
@@ -35,6 +35,6 @@ class Projet extends Model
         return $this->belongsTo(Secteur::class, 'id_sect','id_sect');
     }
 
-   
+
 
 }

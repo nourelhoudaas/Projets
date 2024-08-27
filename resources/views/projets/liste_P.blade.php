@@ -84,15 +84,18 @@
                     <table class="table" id="myTable">
                         <thead>
                             <tr>
-                                <th>Id </th>
+                                <th>Id projet</th>
                                 <th>Nom du projet </th>
+                                {{-- <th>Libellé des Opération </th> --}}
+                                <th>Numéro d'Individualisation </th>
+                                <th>AP actuelle</th>
                                 <th>Etablissement du projet </th>
-                                <th>Definition du projet</th>
-                                {{-- <th>Date de creation de projet</th> --}}
+                                <th>Dépenses cumulés</th>
+                                <th>PEC</th>
                                 <th>Secteur du projet</th>
                                 <th>Operations du projet</th>
-                                <th>Etat d'avancement</th>
-                                <th>Date de modification</th>
+                                <th>Etat d'avancement du projet</th>
+                                <th>Mise à jour</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -102,10 +105,12 @@
                                     <td><a
                                             href="{{ route('app_liste_Op',$projet->id_projet) }}">{{ $projet->nom_projet }}</a>
                                     </td>
-                                    <td>{{ $projet->etablissement_projet }}</td>
-                                    <td>{{ $projet->definition_projet }}</td>
+                                    <td>{{ $projet->N_individualisation }}</td>
+                                    <td>{{ $projet->AP_actuelle }}</td>
+                                    <td>{{ $projet->depenses_cumules }}</td>
+                                    <td>{{ $projet->PEC }}</td>
                                     {{-- <td>{{ $projet->etablissement_projet }}</td> --}}
-                                    <td>{{ $projet->nom_sect }}</td>
+                                    <td>{{ $projet->nom_sect ?? 'Non défini'}}</td>
                                     <td>
                                         @if (!empty($projet->operations))
                                         {{ $projet->operations }}
@@ -145,6 +150,7 @@
 <script>
 
    let table = new DataTable('#myTable',{
+
     language: {
         info: 'Affichage de la page _PAGE_ sur _PAGES_',
         infoEmpty: 'Aucun enregistrement disponible',
@@ -153,6 +159,7 @@
         zeroRecords: 'Rien trouvé - désolé',
         search: 'Recherche: '
     }
+
    });
 </script>
 @endsection

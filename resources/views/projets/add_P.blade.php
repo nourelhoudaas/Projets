@@ -5,7 +5,7 @@
 
 @section('content')
 
-        
+
     <body>
     <body>
     <div class="container">
@@ -66,9 +66,9 @@
             <!-- end section aside -->
             <main>
                 <div class="recent_order">
-             
+
                     <br></br>
-                    <table class="table">
+                    <table class="table" id="myTable">
                         <thead>
                             <tr>
                                 <th>Id projet </th>
@@ -81,12 +81,12 @@
                                 <th>Secteur </th>
                                 <th>Etat d'Avancement du projet </th>
 
-                               
+
                             </tr>
                         </thead>
                         <tbody>
                         @foreach ($projets as $projet)
-   
+
         <tr>
             <td>{{ $projet->id_projet }}</td>
             <td>{{ $projet->libelle_op }}</td>
@@ -98,11 +98,11 @@
             <td>{{ $projet->nom_sect }}</td>
             <td>{{ $projet->nom_etat }}</td>
         </tr>
-   
+
 @endforeach
-  
+
                     </tbody>
-                       
+
                     </table>
                     {{-- <nav class="app-pagination">
                         {{ $projets->links() }}
@@ -115,4 +115,21 @@
 
                 </div>
             </main>
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+            <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js" ></script>
+<script>
+
+   let table = new DataTable('#myTable',{
+
+    language: {
+        info: 'Affichage de la page _PAGE_ sur _PAGES_',
+        infoEmpty: 'Aucun enregistrement disponible',
+        infoFiltered: '',
+        lengthMenu: 'Afficher _MENU_ enregistrements par page',
+        zeroRecords: 'Rien trouvé - désolé',
+        search: 'Recherche: '
+    }
+
+   });
+</script>
         @endsection
