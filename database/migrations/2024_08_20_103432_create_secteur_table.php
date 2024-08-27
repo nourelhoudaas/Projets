@@ -14,20 +14,18 @@ return new class extends Migration
         Schema::create('secteur', function (Blueprint $table) {
             $table->integer('id_sect')->primary()->autoIncrement();
             $table->string('nom_sect');
-    
+
         });
 
         DB::table('secteur')->insert([
             [
                 
                 'nom_sect'=> 'media',
-               
-                
+
             ],
             [
              
                 'nom_sect'=> 'autre',
-                
             ]
         ]);
     }

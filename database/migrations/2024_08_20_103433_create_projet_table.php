@@ -21,11 +21,11 @@ return new class extends Migration
             $table->float('depenses_previsionnelles');
             $table->integer('id_sect');
             $table->foreign('id_sect')->references('id_sect')->on('secteur');
-          
         });
 
         DB::table('projet')->insert([
             [
+
                 'id_projet'=>1,
                 'libelle_op'=> 'developpement',
                 'N_individualisation'=>'dev20545',
@@ -44,8 +44,9 @@ return new class extends Migration
                 'PEC'=>225.512,
                 'depenses_previsionnelles'=>2785.512,
                 'id_sect'=>2
-          
-            ]
+
+            ],
+           
         ]);
     }
 

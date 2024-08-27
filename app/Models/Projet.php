@@ -35,6 +35,6 @@ class Projet extends Model
         return $this->belongsTo(Secteur::class, 'id_sect','id_sect');
     }
 
-   
+
 
 }
