@@ -86,7 +86,7 @@
                 <div class="recent_order">
              
                     <br></br>
-                    <table class="table">
+                    <table class="table" id='myTable'>
                         <thead>
                             <tr>
                                 <th>Id projet </th>

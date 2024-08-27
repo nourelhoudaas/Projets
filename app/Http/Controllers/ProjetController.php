@@ -21,11 +21,9 @@ class ProjetController extends Controller
        //$projets=Projet::with('operation','Secteur', 'etat_avance')->get();
 
        // Obtenez la dernière date de changement pour chaque projet
-<<<<<<< HEAD
-    /*   $projets = Projet::select(
-=======
+
        $projets = Projet::select(
->>>>>>> 3e50a6f88f89b43986f48f21daee107d8f496bdb
+
         'projet.*',
         'latest_archive.id_etat',
         'latest_archive.date_chang_proj',
@@ -53,12 +51,13 @@ class ProjetController extends Controller
         'etat_avance.nom_etat',
         'secteur.nom_sect'
     )
-    ->get();*/
+    ->get();
 
    // dd($projets);
 
         return view('projets.liste_P', compact('projets'));
     }
+
 
     /*******************************insertion proojet ******************/
     public function add_P()
@@ -83,8 +82,8 @@ $etats=Etat_avance::all();
 
     public function insertProj(Request $request)
     {
-
-      //valider les champs
+       
+      //valider les champs 
         $validerData= $request->validate([
             'id_projet'=> 'required|numeric',
             'libelle_op' => 'required|string|max:255',
@@ -93,16 +92,11 @@ $etats=Etat_avance::all();
             'depenses_cumules' => 'required|numeric',
             'PEC' => 'required|numeric',
             'depenses_previsionnelles' => 'required|numeric',
-            //'nom_sect' => 'nullable|string|exists:secteur,nom_sect'
+            //'nom_sect' => 'nullable|string|exists:secteur,nom_sect' 
             'id_sect' => 'nullable|exists:secteur,id_sect',
-<<<<<<< HEAD
             'id_etat' => 'nullable|exists:etat_avance,id_etat',
             'date_chang_proj' => 'date',
            
-=======
-              'id_etat' => 'nullable|exists:etat_avance,id_etat'
-
->>>>>>> 3e50a6f88f89b43986f48f21daee107d8f496bdb
         ]);
 
       // dd($validerData);
@@ -158,12 +152,10 @@ $etats=Etat_avance::all();
     }
 
     /*************************select projet *****************************************/
-    public function modifierProj()
+    public function updateEtat()
     {
-
-
-
-
+    
+  
     }
 
 }
