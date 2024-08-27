@@ -5,8 +5,33 @@
 
 @section('content')
 
-        
+
     <body>
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        {{-- <div class="container" id="exampleModal">
+            <div class="title">Registration</div>
         <div class="container">
             <div class="title">Insertion </div>
             <div class="content">
@@ -37,13 +62,14 @@
                     <input type="text" placeholder="Entrer les dépenses previsionnelles" required>
                   </div>
                 </div>
-                
+
                 <div class="button">
                   <input type="submit" value="Insérer">
                 </div>
               </form>
             </div>
           </div>
+        </div> --}}
 
 
         <div class="container2">
@@ -55,7 +81,7 @@
                 <div class="recent_order">
 
                     <br></br>
-                    <table class="table">
+                    <table class="table" id="myTable">
                         <thead>
                             <tr>
                                 <th>Id </th>
@@ -93,7 +119,7 @@
                                     @endforeach
                         </tbody>
 
-                        
+
                         </tbody>
                     </table>
                     {{-- <nav class="app-pagination">
@@ -107,4 +133,26 @@
 
                 </div>
             </main>
-        @endsection
+
+
+       {{--
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+
+            --}}
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+            <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js" ></script>
+<script>
+
+   let table = new DataTable('#myTable',{
+    language: {
+        info: 'Affichage de la page _PAGE_ sur _PAGES_',
+        infoEmpty: 'Aucun enregistrement disponible',
+        infoFiltered: '',
+        lengthMenu: 'Afficher _MENU_ enregistrements par page',
+        zeroRecords: 'Rien trouvé - désolé',
+        search: 'Recherche: '
+    }
+   });
+</script>
+@endsection
