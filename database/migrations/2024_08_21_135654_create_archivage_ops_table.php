@@ -21,12 +21,12 @@ return new class extends Migration
 
         });
 
-        DB::table('archivage_op')->insert([
+       DB::table('archivage_op')->insert([
             [
-                'id_archiv' =>1,
+           
                 'id_lib_op'=> 1,
                 'id_etat'=> 1,
-                'date_chang'=> '2022-08-31'
+                'date_chang_op'=> '2022-08-31'
             ]
         ]);
     }

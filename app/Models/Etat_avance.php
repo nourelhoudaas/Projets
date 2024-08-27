@@ -17,19 +17,14 @@ class Etat_avance extends Model
         'nom_etat','id_etat','descriptif_etat'
     ];
 
-    public function operation()
+    public function archivageProjetat()
     {
-        return $this->belongsToMany(operation::class, 'archivage_op','id_etat', 'id_lib_op')
-                    ->withPivot('date_chang')
-                    ->withTimestamps();
+        return $this->hasMany(archivage_projet::class,'id_etat','id_etat');
     }
 
-    public function projet()
+    public function archivageOpetat()
     {
-        return $this->belongsToMany(operation::class, 'archivage_projet','id_etat', 'id_projet')
-                    ->withPivot('date_chang')
-                    ->withTimestamps();
+        return $this->hasMany(archivage_op::class,'id_etat','id_etat');
     }
-
 
 }

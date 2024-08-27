@@ -5,59 +5,41 @@
 
 @section('content')
 
+        
     <body>
         <div class="container">
-            <div class="title">Registration</div>
+            <div class="title">Insertion </div>
             <div class="content">
               <form action="#">
                 <div class="user-details">
                   <div class="input-box">
-                    <span class="details">Full Name</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <span class="details">Libellé Opération</span>
+                    <input type="text" placeholder="Entrer libellé opération" required>
                   </div>
                   <div class="input-box">
-                    <span class="details">Username</span>
-                    <input type="text" placeholder="Enter your username" required>
+                    <span class="details">Numéro d'Individualisation</span>
+                    <input type="text" placeholder="Entrer le numéro d'individualisation " required>
                   </div>
                   <div class="input-box">
-                    <span class="details">Email</span>
-                    <input type="text" placeholder="Enter your email" required>
+                    <span class="details">AP actuelle</span>
+                    <input type="text" placeholder="Entrer Ap Actuelle" required>
                   </div>
                   <div class="input-box">
-                    <span class="details">Phone Number</span>
-                    <input type="text" placeholder="Enter your number" required>
+                    <span class="details">Dépenses cumulés</span>
+                    <input type="text" placeholder="Entrer les dépenses cumulés" required>
                   </div>
                   <div class="input-box">
-                    <span class="details">Password</span>
-                    <input type="text" placeholder="Enter your password" required>
+                    <span class="details">PEC</span>
+                    <input type="text" placeholder="Entrer PEC" required>
                   </div>
                   <div class="input-box">
-                    <span class="details">Confirm Password</span>
-                    <input type="text" placeholder="Confirm your password" required>
+                    <span class="details">Dépenses Previsionnelles</span>
+                    <input type="text" placeholder="Entrer les dépenses previsionnelles" required>
                   </div>
                 </div>
-                <div class="gender-details">
-                  <input type="radio" name="gender" id="dot-1">
-                  <input type="radio" name="gender" id="dot-2">
-                  <input type="radio" name="gender" id="dot-3">
-                  <span class="gender-title">Gender</span>
-                  <div class="category">
-                    <label for="dot-1">
-                    <span class="dot one"></span>
-                    <span class="gender">Male</span>
-                  </label>
-                  <label for="dot-2">
-                    <span class="dot two"></span>
-                    <span class="gender">Female</span>
-                  </label>
-                  <label for="dot-3">
-                    <span class="dot three"></span>
-                    <span class="gender">Prefer not to say</span>
-                    </label>
-                  </div>
-                </div>
+                
                 <div class="button">
-                  <input type="submit" value="Register">
+                  <input type="submit" value="Insérer">
                 </div>
               </form>
             </div>
@@ -88,8 +70,7 @@
                             </tr>
                         </thead>
                         <tbody>
-
-                            @foreach ($projets as $index => $projet)
+                        @foreach ($projets as $index => $projet)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td><a
@@ -110,6 +91,9 @@
                                     <td>{{ $projet->nom_etat ?? 'Non défini'}}</td>
                                     <td>{{ $projet->date_chang ?? 'Non défini' }}</td>
                                     @endforeach
+                        </tbody>
+
+                        
                         </tbody>
                     </table>
                     {{-- <nav class="app-pagination">

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('descriptif_etat');
         });
 
-      /*  DB::table('etat_avance')->insert([
+        DB::table('etat_avance')->insert([
             [
-                'nom_etat' =>'relisé',
+                'nom_etat' =>'realisé',
                 'id_etat'=> 1,
                 'descriptif_etat'=> 'blabla'
             ],
@@ -28,7 +28,7 @@ return new class extends Migration
                 'id_etat'=> 2,
                 'descriptif_etat'=> 'blabla2'
             ]
-        ]);*/
+        ]);
     }
 
     /**

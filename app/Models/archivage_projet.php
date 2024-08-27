@@ -16,4 +16,13 @@ class archivage_projet extends Model
     protected $fillable = [
         'id_archiv','id_projet','id_etat','date_chang'
     ];
+
+    public function archivageProjetat()
+    {
+        return $this->belongsTo(Etat_avance::class, 'id_etat','id_etat');
+    }
+    public function archivageProj()
+    {
+        return $this->belongsTo(Projet::class, 'id_projet', 'id_projet');
+    }
 }

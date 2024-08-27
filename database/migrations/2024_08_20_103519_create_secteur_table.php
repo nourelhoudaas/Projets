@@ -18,16 +18,19 @@ return new class extends Migration
             $table->foreign('id_projet')->references('id_projet')->on('projet');
         });
 
-        /*DB::table('secteur')->insert([
+        DB::table('secteur')->insert([
             [
                 'id_sect' =>1,
                 'nom_sect'=> 'media',
+                'id_projet' =>1,
+                
             ],
             [
                 'id_sect' =>2,
                 'nom_sect'=> 'autre',
+                'id_projet' =>2,
             ]
-        ]);*/
+        ]);
     }
 
     /**

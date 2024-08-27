@@ -21,7 +21,7 @@ class ProjetController extends Controller
        //$projets=Projet::with('operation','Secteur', 'etat_avance')->get();
 
        // Obtenez la dernière date de changement pour chaque projet
-       $projets = Projet::select(
+      /* $projets = Projet::select(
         'projet.*',
         'latest_archive.id_etat',
         'latest_archive.date_chang',
@@ -53,11 +53,94 @@ class ProjetController extends Controller
 
    // dd($projets);
 
-        return view('projets.liste_P', compact('projets'));
+        return view('projets.liste_P', compact('projets'));*/
     }
 
+    /*******************************insertion proojet ******************/
     public function add_P()
     {
-        return view('projets.add_P');
+           // Passer les projets pour affichage initial
+    //$projets = Projet::with(['secteur', 'archivageProj.archivageProjetat'])->get();
+    //dd($projets);
+    $projets = DB::table('projet as p')
+    ->leftJoin('secteur as s', 's.id_projet', '=', 'p.id_projet')
+    ->leftJoin('archivage_projet as ap', 'ap.id_projet', '=', 'p.id_projet')
+    ->leftJoin('etat_avance as e', 'e.id_etat', '=', 'ap.id_etat')
+    ->select('p.*', 's.id_projet as y','s.nom_sect', 'e.*')
+    ->get();
+//dd($projets);
+$secteurs = Secteur::all();
+//$etats=Etat_avance::all();
+
+//dd($secteurs);
+//dd($etats);
+    return view('projets.add_P', compact('projets','secteurs'));
     }
+
+    public function insertProj(Request $request)
+    {
+       
+      //valider les champs 
+        $validerData= $request->validate([
+
+            'libelle_op' => 'required|string|max:255',
+            'N_individualisation' => 'required|string|max:255',
+            'AP_actuelle' => 'required|numeric',
+            'depenses_cumules' => 'required|numeric',
+            'PEC' => 'required|numeric',
+            'depenses_previsionnelles' => 'required|numeric',
+            //'nom_sect' => 'nullable|string|exists:secteur,nom_sect' 
+            'id_sect' => 'nullable|exists:secteur,id_sect',
+              'id_etat' => 'nullable|exists:etat_avance,id_etat'
+           
+        ]);
+
+      // dd($validerData);
+
+       //Projet::create($validerData);
+
+        /*$projets = Projet::with([
+            'secteur',
+            'archivageProj.etatproj'
+        ])
+        ->get(); */
+         // Insertion du projet
+    $projet = Projet::create([
+        'libelle_op' => $validerData['libelle_op'],
+        'N_individualisation' => $validerData['N_individualisation'],
+        'AP_actuelle' => $validerData['AP_actuelle'],
+        'depenses_cumules' => $validerData['depenses_cumules'],
+        'PEC' => $validerData['PEC'],
+        'depenses_previsionnelles' => $validerData['depenses_previsionnelles']
+    ]);
+//dd($projet);
+    // Si un secteur est sélectionné, le lier au projet
+    if (!empty($validerData['id_sect'])) {
+        $secteur = Secteur::find($validerData['id_sect']);
+        $secteur->id_projet = $projet->id_projet;
+        $secteur->save();
+    }
+      $projets = DB::table('projet as p')
+    ->leftJoin('secteur as s', 's.id_projet', '=', 'p.id_projet')
+    ->leftJoin('archivage_projet as ap', 'ap.id_projet', '=', 'p.id_projet')
+    ->leftJoin('etat_avance as e', 'e.id_etat', '=', 'ap.id_etat')
+    ->select('p.*', 's.*', 'e.*')
+    ->get();
+//dd($projets);
+//$secteurs = Secteur::all();
+
+// dd($secteurs);
+       //return view ('projets.add_P',compact('projets','secteurs'));
+        return redirect()->route('app_add_P')->with('success', 'Projet inséré avec succès');
+    }
+
+    /*************************select projet *****************************************/
+    public function selectProj()
+    {
+    
+
+    
+       
+    }
+
 }

@@ -22,14 +22,20 @@ return new class extends Migration
 
         });
 
-       /* DB::table('archivage_projet')->insert([
+       DB::table('archivage_projet')->insert([
             [
-                'id_archiv' =>1,
+               
                 'id_projet'=> 1,
                 'id_etat'=> 1,
-                'date_chang'=> '2022-08-31'
+                'date_chang_proj'=> '2022-08-31'
+            ],
+            [
+               
+                'id_projet'=> 2,
+                'id_etat'=> 2,
+                'date_chang_proj'=> '2023-08-31'
             ]
-        ]);*/
+        ]);
     }
 
     /**

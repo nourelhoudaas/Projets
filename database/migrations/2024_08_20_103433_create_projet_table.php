@@ -22,29 +22,27 @@ return new class extends Migration
           
         });
 
-       /* DB::table('projet')->insert([
+        DB::table('projet')->insert([
             [
-                'id_projet' => 1,
-                'id_sect' =>1,
-                'nom_projet'=> 'developpement',
-                'etablissement_projet'=>'personnel',
-                'definition_projet'=>'investissement'
+               
+                'libelle_op'=> 'developpement',
+                'N_individualisation'=>'dev20545',
+                'AP_actuelle'=>25.512,
+                'depenses_cumules'=>125.512,
+                'PEC'=>225.512,
+                'depenses_previsionnelles'=>2785.512,
             ],
             [
-                'id_projet' => 2,
-                'id_sect' =>2,
-                'nom_projet'=> 'developpement2',
-                'etablissement_projet'=>'personnel2',
-                'definition_projet'=>'investissement2'
-            ],
-            [
-                'id_projet' => 3,
-                'id_sect' =>2,
-                'nom_projet'=> 'developpement2',
-                'etablissement_projet'=>'personnel2',
-                'definition_projet'=>'investissement2'
+                
+                'libelle_op'=> 'dev',
+                'N_individualisation'=>'dev545',
+                'AP_actuelle'=>25.512,
+                'depenses_cumules'=>125.512,
+                'PEC'=>225.512,
+                'depenses_previsionnelles'=>2785.512,
+          
             ]
-        ]);*/
+        ]);
     }
 
     /**
