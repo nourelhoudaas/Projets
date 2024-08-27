@@ -16,4 +16,15 @@ class archivage_op extends Model
     protected $fillable = [
         'id_archiv','id_lib_op','id_etat','date_chang'
     ];
+
+    
+    public function archivageOpetat()
+    {
+        return $this->belongsTo(Etat_avance::class, 'id_etat','id_etat');
+    }
+
+    public function archivageOp()
+    {
+        return $this->belongsTo(Operation::class, 'id_lib_op', 'id_lib_op');
+    }
 }

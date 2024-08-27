@@ -13,34 +13,34 @@ return new class extends Migration
     {
         Schema::create('projet', function (Blueprint $table) {
             $table->integer('id_projet')->primary()->autoIncrement();
-            $table->integer('id_sect');
-            $table->string('nom_projet');
-            $table->string('etablissement_projet');
-            $table->string('definition_projet');
-
+            $table->string('libelle_op');
+            $table->string('N_individualisation');
+            $table->float('AP_actuelle');
+            $table->float('depenses_cumules');
+            $table->float('PEC');
+            $table->float('depenses_previsionnelles');
+          
         });
 
         DB::table('projet')->insert([
             [
-                'id_projet' => 1,
-                'id_sect' =>1,
-                'nom_projet'=> 'developpement',
-                'etablissement_projet'=>'personnel',
-                'definition_projet'=>'investissement'
+               
+                'libelle_op'=> 'developpement',
+                'N_individualisation'=>'dev20545',
+                'AP_actuelle'=>25.512,
+                'depenses_cumules'=>125.512,
+                'PEC'=>225.512,
+                'depenses_previsionnelles'=>2785.512,
             ],
             [
-                'id_projet' => 2,
-                'id_sect' =>2,
-                'nom_projet'=> 'developpement2',
-                'etablissement_projet'=>'personnel2',
-                'definition_projet'=>'investissement2'
-            ],
-            [
-                'id_projet' => 3,
-                'id_sect' =>2,
-                'nom_projet'=> 'developpement2',
-                'etablissement_projet'=>'personnel2',
-                'definition_projet'=>'investissement2'
+                
+                'libelle_op'=> 'dev',
+                'N_individualisation'=>'dev545',
+                'AP_actuelle'=>25.512,
+                'depenses_cumules'=>125.512,
+                'PEC'=>225.512,
+                'depenses_previsionnelles'=>2785.512,
+          
             ]
         ]);
     }

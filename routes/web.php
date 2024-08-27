@@ -21,7 +21,13 @@ Route::controller(HomeController::class)->group(function(){
 /***************************************************************************** */
 Route::controller(ProjetController::class)->group(function(){
     Route::get('/listeP','liste_P')->name('app_liste_P');
-    Route::post('/addP','add_P')->name('app_add_P');
+    //Route::post('/addP','add_P')->name('app_add_P');
+
+    Route::get('/insert','add_P')->name('app_add_P');
+    Route::post('/insertt','insertProj')->name('insrt_proj');
+
+    
+    Route::get('/select','selectProj')->name('app_select_P');
 });
 
 /***************************************************************************** */

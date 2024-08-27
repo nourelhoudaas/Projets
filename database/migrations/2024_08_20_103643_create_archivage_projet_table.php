@@ -12,19 +12,28 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('archivage_projet', function (Blueprint $table) {
-            $table->integer('id_archiv')->primary()->autoIncrement();
-            $table->foreignId('id_projet');
-            $table->foreignId('id_etat');
-            $table->date('date_chang');
+            $table->integer('id_archiv_proj')->primary()->autoIncrement();
+            $table->integer('id_projet');
+            $table->foreign('id_projet')->references('id_projet')->on('projet');
+            $table->integer('id_etat');
+            $table->foreign('id_etat')->references('id_etat')->on('etat_avance');
+            
+            $table->DateTime('date_chang_proj');
 
         });
 
-        DB::table('archivage_projet')->insert([
+       DB::table('archivage_projet')->insert([
             [
-                'id_archiv' =>1,
+               
                 'id_projet'=> 1,
                 'id_etat'=> 1,
-                'date_chang'=> '2022-08-31'
+                'date_chang_proj'=> '2022-08-31'
+            ],
+            [
+               
+                'id_projet'=> 2,
+                'id_etat'=> 2,
+                'date_chang_proj'=> '2023-08-31'
             ]
         ]);
     }
