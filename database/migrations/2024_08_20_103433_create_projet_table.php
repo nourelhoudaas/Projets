@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projet', function (Blueprint $table) {
-            $table->integer('id_projet')->primary()->autoIncrement();
+            $table->integer('id_projet')->primary();
             $table->string('libelle_op');
             $table->string('N_individualisation');
             $table->float('AP_actuelle');
@@ -21,31 +21,32 @@ return new class extends Migration
             $table->float('depenses_previsionnelles');
             $table->integer('id_sect');
             $table->foreign('id_sect')->references('id_sect')->on('secteur');
-
         });
 
         DB::table('projet')->insert([
             [
 
+                'id_projet'=>1,
                 'libelle_op'=> 'developpement',
                 'N_individualisation'=>'dev20545',
                 'AP_actuelle'=>25.512,
                 'depenses_cumules'=>125.512,
                 'PEC'=>225.512,
                 'depenses_previsionnelles'=>2785.512,
-                'id_sect'=>1,
+                'id_sect'=>1
             ],
             [
-
+                'id_projet'=>2,
                 'libelle_op'=> 'dev',
                 'N_individualisation'=>'dev545',
                 'AP_actuelle'=>25.512,
                 'depenses_cumules'=>125.512,
                 'PEC'=>225.512,
                 'depenses_previsionnelles'=>2785.512,
-                'id_sect'=>2,
+                'id_sect'=>2
 
-            ]
+            ],
+           
         ]);
     }
 

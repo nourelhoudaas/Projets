@@ -15,20 +15,17 @@ return new class extends Migration
             $table->integer('id_sect')->primary()->autoIncrement();
             $table->string('nom_sect');
 
-
         });
 
         DB::table('secteur')->insert([
             [
-                'id_sect' =>1,
+                
                 'nom_sect'=> 'media',
-
 
             ],
             [
-                'id_sect' =>2,
+             
                 'nom_sect'=> 'autre',
-
             ]
         ]);
     }

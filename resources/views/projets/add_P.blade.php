@@ -1,22 +1,23 @@
 @extends('Home')
 
 
-@section('title', 'Nouveau Projet')
-
-@section('content')
 @section('title', 'liste Projets')
 
 @section('content')
 
-
+        
     <body>
-    <body>
+    
     <div class="container">
         <div class="title">Insertion</div>
         <div class="content">
             <form action="{{ route('insrt_proj') }}" method="POST">
                 @csrf
                 <div class="user-details">
+                <div class="input-box">
+                        <span class="details">ID Projet</span>
+                        <input type="text" name="id_projet" placeholder="Entrer id du projet " required>
+                    </div>
                     <div class="input-box">
                         <span class="details">Libellé Opération</span>
                         <input type="text" name="libelle_op" placeholder="Entrer libellé opération" required>
@@ -51,6 +52,20 @@
             @endforeach
         </select>
     </div>
+        <div class="form-group">
+        <label for="id_etat">État d'Avancement</label>
+        <select id="id_etat" name= "id_etat" class="form-control">
+            <option value="">Sélectionner un état</option>
+            @foreach ($etats as $etat)
+                <option value="{{ $etat->id_etat }}">{{ $etat->nom_etat }}</option>
+            @endforeach
+        </select>
+        </div>
+        <div class="form-group" id="date-container" style="display: none;">
+            <label for="date_chang_proj">Date de l'état d'avancement du projet</label>
+            <input type="date" id="date_chang_proj" name="date_chang_proj" class="form-control">
+        </div>
+
 
                 <div class="button">
                     <input type="submit" value="Insérer">
@@ -69,9 +84,9 @@
             <!-- end section aside -->
             <main>
                 <div class="recent_order">
-
+             
                     <br></br>
-                    <table class="table" id="myTable">
+                    <table class="table" id='myTable'>
                         <thead>
                             <tr>
                                 <th>Id projet </th>
@@ -84,28 +99,28 @@
                                 <th>Secteur </th>
                                 <th>Etat d'Avancement du projet </th>
 
-
+                               
                             </tr>
                         </thead>
                         <tbody>
                         @foreach ($projets as $projet)
-
-        <tr>
-            <td>{{ $projet->id_projet }}</td>
-            <td>{{ $projet->libelle_op }}</td>
-            <td>{{ $projet->N_individualisation }}</td>
-            <td>{{ $projet->AP_actuelle }}</td>
-            <td>{{ $projet->depenses_cumules }}</td>
-            <td>{{ $projet->PEC }}</td>
-            <td>{{ $projet->depenses_previsionnelles }}</td>
-            <td>{{ $projet->nom_sect }}</td>
-            <td>{{ $projet->nom_etat }}</td>
-        </tr>
-
-@endforeach
-
+   
+                            <tr>
+                                <td>{{ $projet->id_projet }}</td>
+                                <td>{{ $projet->libelle_op }}</td>
+                                <td>{{ $projet->N_individualisation }}</td>
+                                <td>{{ $projet->AP_actuelle }}</td>
+                                <td>{{ $projet->depenses_cumules }}</td>
+                                <td>{{ $projet->PEC }}</td>
+                                <td>{{ $projet->depenses_previsionnelles }}</td>
+                                <td>{{ $projet->nom_sect }}</td>
+                                <td>{{ $projet->nom_etat }}</td>
+                            </tr>
+                    
+                    @endforeach
+                    
                     </tbody>
-
+                       
                     </table>
                     {{-- <nav class="app-pagination">
                         {{ $projets->links() }}
@@ -114,11 +129,22 @@
 
                         </td>
 
-
-
                 </div>
             </main>
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+
+ 
+<script>
+    document.getElementById('id_etat').addEventListener('change', function() {
+        var dateContainer = document.getElementById('date-container');
+        if (this.value) {
+            dateContainer.style.display = 'block';
+        } else {
+            dateContainer.style.display = 'none';
+        }
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
             <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js" ></script>
 <script>
 
@@ -135,4 +161,5 @@
 
    });
 </script>
+
         @endsection
