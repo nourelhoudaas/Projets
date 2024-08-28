@@ -67,20 +67,20 @@
                 <div class="recent_order">
 
                     <br></br>
-                    <table class="table" id="myTable">
+                    <table class="table table-striped" style="width:50%" id="myTable">
                         <thead>
                             <tr>
-                                <th>N° du projet</th>
-                                <th>Libellé du projet </th>
+                                <th scope="col">N° du projet</th>
+                                <th scope="col">Libellé du projet </th>
                                 {{-- <th>Libellé des Opération </th> --}}
-                                <th>Numéro d'Individualisation </th>
-                                <th>AP actuelle</th>
-                                <th>Dépenses cumulés</th>
-                                <th>PEC</th>
-                                <th>Secteur du projet</th>
-                                <th>Operations du projet</th>
-                                <th>Etat d'avancement du projet</th>
-                                <th>Mise à jour</th>
+                                <th scope="col">Numéro d'Individualisation </th>
+                                <th scope="col">AP actuelle</th>
+                                <th scope="col">Dépenses cumulés</th>
+                                <th scope="col">PEC</th>
+                                <th scope="col">Secteur du projet</th>
+                                <th scope="col">Operations du projet</th>
+                                <th scope="col">Etat d'avancement du projet</th>
+                                <th scope="col">Mise à jour</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,7 +88,7 @@
                                 <tr>
                                     <td>{{ $projet->id_projet }}</td>
                                     <td><a
-                                            href="{{ route('app_liste_Op',$projet->id_projet) }}">{{ $projet->nom_projet }}</a>
+                                            href="{{ route('app_liste_Op',$projet->id_projet) }}">{{ $projet->id_projet }}</a>
                                     </td>
                                     <td>{{ $projet->N_individualisation }}</td>
                                     <td>{{ $projet->AP_actuelle }}</td>
@@ -125,25 +125,23 @@
                 </div>
             </main>
 
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
-            <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js" ></script>
+            <script src="https://code.jquery.com/jquery-3.7.1.js" ></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js" ></script>
+            <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js" ></script>
+            <script src="https://cdn.datatables.net/2.1.4/js/dataTables.bootstrap5.js" ></script>
 <script>
+let table = new DataTable('#myTable',{
 
-   let table = new DataTable('#myTable',{
+language: {
+    info: ' Affichage de la page _PAGE_ sur _PAGES_',
+    infoEmpty: 'Aucun enregistrement disponible',
+    infoFiltered: '',
+    lengthMenu: '  _MENU_',
+    zeroRecords: 'Rien trouvé - désolé',
+    search: 'Recherche: '
+}
 
-    language: {
-        info: ' Affichage de la page _PAGE_ sur _PAGES_',
-        infoEmpty: 'Aucun enregistrement disponible',
-        infoFiltered: '',
-        lengthMenu: '  _MENU_',
-        zeroRecords: 'Rien trouvé - désolé',
-        search: 'Recherche: '
-    }
 
-    "columnDefs": [
-            { "className": "text-center" } // Remplacez [0, 2] par les index des colonnes que vous souhaitez centrer
-        ]
-
-   });
+});
 </script>
 @endsection

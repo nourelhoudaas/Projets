@@ -16,8 +16,13 @@
        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" >
-       <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css">
+
+       <link rel="stylesheet" href="  https://cdn.datatables.net/2.1.4/css/dataTables.bootstrap5.css">
+
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+
+
+
 
 
 
@@ -46,7 +51,7 @@
          <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
 
          <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js" ></script>
-         <script src="app.js"></script>
+
 
 
 </html>

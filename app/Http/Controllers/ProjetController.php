@@ -55,7 +55,7 @@ class ProjetController extends Controller
 
     $secteurs = Secteur::all();
 
-        return view('projets.liste_P', compact('projets','secteurs'));
+        return view('projets.liste_P2', compact('projets','secteurs'));
     }
 
 
@@ -82,8 +82,8 @@ $etats=Etat_avance::all();
 
     public function insertProj(Request $request)
     {
-       
-      //valider les champs 
+
+      //valider les champs
         $validerData= $request->validate([
             'id_projet'=> 'required|numeric',
             'libelle_op' => 'required|string|max:255',
@@ -92,11 +92,11 @@ $etats=Etat_avance::all();
             'depenses_cumules' => 'required|numeric',
             'PEC' => 'required|numeric',
             'depenses_previsionnelles' => 'required|numeric',
-            //'nom_sect' => 'nullable|string|exists:secteur,nom_sect' 
+            //'nom_sect' => 'nullable|string|exists:secteur,nom_sect'
             'id_sect' => 'nullable|exists:secteur,id_sect',
             'id_etat' => 'nullable|exists:etat_avance,id_etat',
             'date_chang_proj' => 'date',
-           
+
         ]);
 
       // dd($validerData);
@@ -117,7 +117,7 @@ $etats=Etat_avance::all();
         'depenses_cumules' => $validerData['depenses_cumules'],
         'PEC' => $validerData['PEC'],
         'depenses_previsionnelles' => $validerData['depenses_previsionnelles'],
-        'id_sect' => $validerData['id_sect'] 
+        'id_sect' => $validerData['id_sect']
     ]);
 //dd($projet);
    // $nomSecteur = $projet->secteur->nom_sect;
@@ -134,7 +134,7 @@ $etats=Etat_avance::all();
         'id_projet' =>$validerData['id_projet'],
         'id_etat' => $validerData['id_etat'],
         'date_chang_proj'=>$validerData['date_chang_proj'],
-        
+
     ]);
 }
         $projets = DB::table('projet as p')
@@ -154,8 +154,8 @@ $etats=Etat_avance::all();
     /*************************select projet *****************************************/
     public function updateEtat()
     {
-    
-  
+
+
     }
 
 }

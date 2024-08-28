@@ -1,8 +1,7 @@
 /*========== GOOGLE FONTS ==========*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-@import "./lib/bootstrap/css/bootstrap.css";
-@import "./main/user/user.css";
+
 /*========== VARIABLES CSS ==========*/
 :root {
     --header-height: 3.5rem;
@@ -229,10 +228,7 @@ img {
   .user-details .input-box input:valid{
     border-color:var(--first-color) ;
   }
-   form .gender-details .gender-title{
-    font-size: 20px;
-    font-weight: 500;
-   }
+
    form .category{
      display: flex;
      width: 80%;
@@ -248,6 +244,7 @@ img {
    form .button{
      height: 45px;
      text-align: center;
+     margin-top: 2rem;
    }
    form .button input{
      height: 100%;
@@ -306,12 +303,6 @@ b{
     overflow: hidden;
 }
 
-
-
-
-
-
-
 /* *********************************
 Start main section style
 ------------------------------------ */
@@ -330,50 +321,15 @@ main h1{
 
 main .recent_order{
     margin-top: 2rem;
+            background-color: #fff;
+            padding: 20px 10px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            margin-right: -5rem;
 }
 
 main .recent_order h2{
     color: var(--clr-dark);
-}
-
-main .recent_order table{
-    background-color: var(--clr-white);
-    width: 105%;
-    border-radius: var(--card-border-raduis);
-    padding: var(--card-padding);
-    text-align: center;
-    box-shadow: var(--box-shadow);
-    transition: all .3s ease;
-    color: var(--clr-dark);
-}
-
-main .recent_order table:hover{
-    box-shadow: none;
-}
-main table {
-  border-collapse: separate;
-  text-indent: initial;
-  border-spacing: 2px;
-
-
-}
-
-main table tbody tr{
-    height: 3.8rem;
-
-    border-bottom: 1px solid var(--clr-white);
-    color: var(--clr-dark-variant);
-}
-
-main table tbody td{
-    height: 3.8rem;
-    border-bottom: 1px solid var(--clr-dark);
-    place-content: center;
-    text-align: center;
-}
-
-.text-center {
-    text-align: center;
 }
 
 main .recent_order a{
@@ -386,3 +342,4 @@ main .recent_order a:hover{
     color: var(--first-color);
 
 }
+
