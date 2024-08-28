@@ -51,9 +51,9 @@ class ProjetController extends Controller
     )
     ->get();
 
-   // dd($projets);
+    $secteurs = Secteur::all();
 
-        return view('projets.liste_P', compact('projets'));
+        return view('projets.liste_P', compact('projets','secteurs'));
     }
 
     /*******************************insertion proojet ******************/

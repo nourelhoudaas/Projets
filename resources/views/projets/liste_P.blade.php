@@ -7,89 +7,74 @@
 
 
     <body>
-        <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-  <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-        {{-- <div class="container" id="exampleModal">
-            <div class="title">Registration</div>
-        <div class="container">
-            <div class="title">Insertion </div>
-            <div class="content">
-              <form action="#">
-                <div class="user-details">
-                  <div class="input-box">
-                    <span class="details">Libellé Opération</span>
-                    <input type="text" placeholder="Entrer libellé opération" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">Numéro d'Individualisation</span>
-                    <input type="text" placeholder="Entrer le numéro d'individualisation " required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">AP actuelle</span>
-                    <input type="text" placeholder="Entrer Ap Actuelle" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">Dépenses cumulés</span>
-                    <input type="text" placeholder="Entrer les dépenses cumulés" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">PEC</span>
-                    <input type="text" placeholder="Entrer PEC" required>
-                  </div>
-                  <div class="input-box">
-                    <span class="details">Dépenses Previsionnelles</span>
-                    <input type="text" placeholder="Entrer les dépenses previsionnelles" required>
-                  </div>
-                </div>
-
-                <div class="button">
-                  <input type="submit" value="Insérer">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div> --}}
-
-
-        <div class="container2">
 
             <!-- start section aside -->
             @include('./navbar.sidebar')
             <!-- end section aside -->
             <main>
+
+  <div class="container2">
+    <div class="title">Insertion</div>
+    <div class="content">
+        <form action="{{ route('insrt_proj') }}" method="POST">
+            @csrf
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Libellé Opération</span>
+                    <input type="text" name="libelle_op" placeholder="Entrer libellé opération" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">PEC</span>
+                    <input type="text" name="PEC" placeholder="Entrer PEC"  required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Numéro d'Individualisation</span>
+                    <input type="text" name="N_individualisation" placeholder="Entrer le numéro d'individualisation"  required>
+                </div>
+                <div class="input-box">
+                    <span class="details">AP actuelle</span>
+                    <input type="text" name="AP_actuelle" placeholder="Entrer AP Actuelle"  required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Dépenses cumulés</span>
+                    <input type="text" name="depenses_cumules" placeholder="Entrer les dépenses cumulés"   required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Dépenses Prévisionnelles</span>
+                    <input type="text" name="depenses_previsionnelles" placeholder="Entrer les dépenses prévisionnelles" required>
+                </div>
+            </div>
+            <div class="form-group">
+    <label for="id_sect">Secteur</label>
+    <select id="id_sect" name="id_sect" class="form-control">
+        <option value="">Sélectionner un secteur</option>
+        @foreach ($secteurs as $secteur)
+            <option value="{{ $secteur->id_sect }}">{{ $secteur->nom_sect }}</option>
+        @endforeach
+    </select>
+</div>
+
+            <div class="button">
+                <input type="submit" value="Insérer">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
                 <div class="recent_order">
 
                     <br></br>
                     <table class="table" id="myTable">
                         <thead>
                             <tr>
-                                <th>Id projet</th>
-                                <th>Nom du projet </th>
+                                <th>N° du projet</th>
+                                <th>Libellé du projet </th>
                                 {{-- <th>Libellé des Opération </th> --}}
                                 <th>Numéro d'Individualisation </th>
                                 <th>AP actuelle</th>
-                                <th>Etablissement du projet </th>
                                 <th>Dépenses cumulés</th>
                                 <th>PEC</th>
                                 <th>Secteur du projet</th>
@@ -99,9 +84,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($projets as $index => $projet)
+                        @foreach ($projets as  $projet)
                                 <tr>
-                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $projet->id_projet }}</td>
                                     <td><a
                                             href="{{ route('app_liste_Op',$projet->id_projet) }}">{{ $projet->nom_projet }}</a>
                                     </td>
@@ -122,6 +107,7 @@
                                     <td>{{ $projet->nom_etat ?? 'Non défini'}}</td>
                                     <td>{{ $projet->date_chang ?? 'Non défini' }}</td>
                                     @endforeach
+                                </tr>
                         </tbody>
 
 
@@ -139,12 +125,6 @@
                 </div>
             </main>
 
-
-       {{--
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
-
-            --}}
             <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
             <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js" ></script>
 <script>
@@ -152,13 +132,17 @@
    let table = new DataTable('#myTable',{
 
     language: {
-        info: 'Affichage de la page _PAGE_ sur _PAGES_',
+        info: ' Affichage de la page _PAGE_ sur _PAGES_',
         infoEmpty: 'Aucun enregistrement disponible',
         infoFiltered: '',
-        lengthMenu: 'Afficher _MENU_ enregistrements par page',
+        lengthMenu: '  _MENU_',
         zeroRecords: 'Rien trouvé - désolé',
         search: 'Recherche: '
     }
+
+    "columnDefs": [
+            { "className": "text-center" } // Remplacez [0, 2] par les index des colonnes que vous souhaitez centrer
+        ]
 
    });
 </script>
