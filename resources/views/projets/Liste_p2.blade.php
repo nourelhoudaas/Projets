@@ -4,102 +4,6 @@
 @section('title', 'liste Projets')
 
 @section('content')
-    <style>
-
-    .recent_order .title{
-    font-size: 25px;
-    font-weight: 500;
-    position: relative;
-  }
-  .recent_order .title::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    border-radius: 5px;
-    background: linear-gradient(135deg,var( --clr-danger), var(--first-color) );
-  }
-        .styled-table {
-            border-collapse: collapse;
-            margin-top: 10rem;
-            margin: 25px 0;
-            font-size: 0.9em;
-            font-family: sans-serif;
-            min-width: 400px;
-            transition: all .3s ease;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .styled-table thead tr {
-            background-color: #138827;
-            color: #ffffff;
-            text-align: left;
-        }
-
-        .styled-table th,
-        .styled-table td {
-            padding: 12px 15px;
-        }
-
-        .styled-table tbody tr {
-            border-bottom: 1px solid #dddddd;
-        }
-
-        .styled-table tbody tr:nth-of-type(even) {
-            background-color: #f3f3f3;
-        }
-
-        .styled-table tbody tr:last-of-type {
-            border-bottom: 2px solid #009879;
-        }
-
-        .styled-table tbody tr.active-row {
-            font-weight: bold;
-            color: #009879;
-        }
-
-        #myTable tbody tr td {
-            text-align: center;
-        }
-
-        #myTable thead tr th {
-            text-align: center;
-        }
-
-        /* Conteneur au-dessus du tableau */
-        .top {
-            display: flex;
-            justify-content: flex-end;
-            /* Aligner la barre de recherche à droite */
-            margin-bottom: 10px;
-            /* Optionnel : ajouter un espace sous la barre de recherche */
-        }
-
-        /* Conteneur sous le tableau */
-        .bottom {
-            display: flex;
-            justify-content: space-between;
-            /* Espace entre le sélecteur et la pagination */
-            align-items: center;
-            /* Centrer verticalement le contenu */
-            margin-top: 10px;
-            /* Optionnel : ajouter un espace au-dessus du sélecteur et pagination */
-        }
-
-        /* Aligner le sélecteur de lignes à gauche */
-        .bottom .dataTables_length {
-            text-align: left;
-        }
-
-        /* Aligner la pagination à droite */
-        .bottom .dataTables_paginate {
-            text-align: right;
-        }
-
-
-    </style>
 
     <body>
 
@@ -237,20 +141,7 @@
                 },
 
             });
-            /*layout: {
-                    bottomEnd: {
-                        paging: {
-                            firstLast: false,
-                        },
 
-                    },
-                    bottomStart:{
-                        pageLength: {
-                            menu: [ 10, 25, 50, 100 ]
-                        }
-                    },
-
-                }*/
         </script>
 
     @endsection

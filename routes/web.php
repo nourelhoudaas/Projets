@@ -8,10 +8,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\OperationController;
 
-Route::get('/', function () {
+/*Route::get('/', function () {
   return view('Home');
 });
-
+*/
 /*========================================================================
 Route::controller(HomeController::class)->group(function(){
     Route::get('/','home')->name('app_home');
@@ -20,7 +20,7 @@ Route::controller(HomeController::class)->group(function(){
 
 /***************************************************************************** */
 Route::controller(ProjetController::class)->group(function(){
-    Route::get('/listeP','liste_P')->name('app_liste_P');
+    Route::get('/','liste_P')->name('app_liste_P');
     Route::get('/listeP2','liste_P')->name('app_liste_P');
     Route::match(['get', 'post'],'/addP','add_P')->name('app_add_P');
 

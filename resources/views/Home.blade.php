@@ -33,25 +33,10 @@
         {{-- barre de navigation a gauche--}}
             @include('navbar.sidebar')
 
-            {{-- <div class="bg">
-                <div class="content">
-                    <h1>République Algérienne Démocratique et Populaire</h1>
-                    <h2>Ministère de la Communication</h2>
-
-                </div>
-            </div> --}}
-
         {{-- le contenu des pages sera afficher ici--}}
         @yield('content')
 
 
          {{-- nos script js--}}
-
-
-         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
-
-         <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js" ></script>
-
-
 
 </html>

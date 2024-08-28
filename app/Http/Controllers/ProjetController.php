@@ -55,7 +55,7 @@ class ProjetController extends Controller
 
     $secteurs = Secteur::all();
 
-        return view('projets.liste_P2', compact('projets','secteurs'));
+        return view('projets.liste_P', compact('projets','secteurs'));
     }
 
 

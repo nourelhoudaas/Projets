@@ -1,4 +1,4 @@
-@extends('Home')
+@extends('liste_P')
 
 
 @section('title', 'liste Opérations')
