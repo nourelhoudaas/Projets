@@ -434,6 +434,40 @@ main .recent_order a:hover{
         /* Aligner la pagination à droite */
         .bottom .dataTables_paginate {
             text-align: right;
+
         }
+
+/* Centrer la pagination */
+#myTable_wrapper .dataTables_wrapper .dataTables_paginate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.pagination-fa{
+    color: var(--first-color);
+
+}
+.disabled .pagination-fa{
+    color: cadetblue;
+}
+.paginate_button{
+
+    border: none !important;
+}
+.paginate_button:hover{
+    background: none !important;
+    border: none !important;
+}
+.paginate_button:focus{
+    outline: none !important;
+    border: none !important;
+}
+.paginate_button:active{
+    background: none !important;
+
+}
+
 
 /*================================TABLEAU===========================================================*/
